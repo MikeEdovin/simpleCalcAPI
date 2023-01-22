@@ -1,14 +1,19 @@
 package com.calculator.simple.Calculator;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Stack;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Service
 public class ParsePostfixImpl implements ParsePostfix{
-    private Stack<Double> stack;
-
-    public ParsePostfixImpl(){
-        this.stack=new Stack<>();
-    }
+    private Stack<Double> stack=new Stack<>();
 
     @Override
     public double doParse(List<String>input) {
@@ -43,7 +48,7 @@ public class ParsePostfixImpl implements ParsePostfix{
                 }
             }
         }catch (NumberFormatException e){
-            throw new IllegalArgumentException("Not a math expression");
+            throw new IllegalArgumentException("Not a math expression ");
         }
             return stack.pop();
 

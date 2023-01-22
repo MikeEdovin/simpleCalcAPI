@@ -1,18 +1,25 @@
 package com.calculator.simple.Calculator;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
-import java.util.regex.Pattern;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+@Service
 public class InfixToPostfixImpl implements InfixToPostfix{
-    private Stack<String> stack;
+    private Stack<String> stack=new Stack<>();
     String delimiters = "(?<=[-+*/(),])(?=.)|(?<=.)(?=[-+*/(),])";
 
-    public InfixToPostfixImpl(){
-        this.stack=new Stack<>();
-    }
+
     @Override
     public List<String> separateNegative(String in){
         if(in==null||in==""){

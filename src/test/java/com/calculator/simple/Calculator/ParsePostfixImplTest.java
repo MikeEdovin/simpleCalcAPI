@@ -3,12 +3,12 @@ package com.calculator.simple.Calculator;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+@SpringBootTest
 class ParsePostfixImplTest {
     List<String>in1= List.of(new String[]{"2", "3", "1", "2", "+", "*", "+"});
     List<String>in2= List.of(new String[]{"-2", "3", "1", "2", "+", "*", "+"});
@@ -18,8 +18,8 @@ class ParsePostfixImplTest {
     List<String>wrongInput= List.of(new String[]{"s", "3.5", "1", "2", "+", "*", "+"});
 
 
-
-    ParsePostfixImpl ppi=new ParsePostfixImpl();
+    @Autowired
+    ParsePostfixImpl ppi;
     @BeforeEach
     void setUp() {
     }
